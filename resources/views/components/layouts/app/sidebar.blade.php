@@ -15,7 +15,12 @@
                 <flux:navlist.group :heading="__('Platform')" class="grid">
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
                 </flux:navlist.group>
-            </flux:navlist>
+
+                <flux:navlist.item icon="funnel" :href="route('admin.court-types.index')"
+                    :current="request()->routeIs('admin.court-types.*')" wire:navigate>{{ __('Tipos de Canchas') }}
+                </flux:navlist.item>
+
+            </flux:navlist>            
 
             <flux:spacer />
 
@@ -126,6 +131,12 @@
         </flux:header>
 
         {{ $slot }}
+
+        <!-- Notifications -->
+        <x-ui.toast-notifications />
+
+        {{-- Modal - Confirmar para Eliminar --}}
+        <x-ui.modal-delete-confirm />
 
         @fluxScripts
     </body>
