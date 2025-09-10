@@ -18,16 +18,16 @@ class Index extends Component
 
     public function updatingPaginarX()
     {
-        $this->resetPage('court-tyesPage');
+        $this->resetPage('court-typesPage');
     }
     public function updatingSearch()
     {
-        $this->resetPage('court-tyesPage');
+        $this->resetPage('court-typesPage');
     }
 
-    // Metodo para eliminar una categoría
+    // Metodo para eliminar
     #[On('delete-courtype')] // Escuchamos la accion enviado con dispatch
-    public function deleteCategoria($id)
+    public function deleteCourtType($id)
     {
 
         $courtType = CourtType::find($id);
@@ -44,13 +44,12 @@ class Index extends Component
                 message: 'El Tipo de Cancha se eliminó correctamente.'
             );
         }
-        // $this->loadCategories();
     }
 
     public function render()
     {
         $courtTypes = CourtType::where('nombre', 'like', '%'.$this->search.'%')
-            ->orderby('id', 'desc')->paginate($this->paginarX, ['*'], 'court-tyesPage');
+            ->orderby('id', 'desc')->paginate($this->paginarX, ['*'], 'court-typesPage');
 
         return view('livewire.admin.court-type.index', [
             'courtTypes' => $courtTypes,

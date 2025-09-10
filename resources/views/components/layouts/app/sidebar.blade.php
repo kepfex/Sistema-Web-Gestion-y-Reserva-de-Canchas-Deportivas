@@ -16,8 +16,20 @@
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
                 </flux:navlist.group>
 
-                <flux:navlist.item icon="funnel" :href="route('admin.court-types.index')"
+                <flux:navlist.item icon="square-3-stack-3d" :href="route('admin.court-types.index')"
                     :current="request()->routeIs('admin.court-types.*')" wire:navigate>{{ __('Tipos de Canchas') }}
+                </flux:navlist.item>
+                <flux:navlist.item icon="funnel" :href="route('admin.courts.index')"
+                    :current="request()->routeIs('admin.courts.*')" wire:navigate>{{ __('Canchas') }}
+                </flux:navlist.item>
+                <flux:navlist.item icon="currency-dollar" :href="route('admin.pricings.index')"
+                    :current="request()->routeIs('admin.pricings.*')" wire:navigate>{{ __('Precios') }}
+                </flux:navlist.item>
+                <flux:navlist.item icon="calendar-days" :href="route('admin.schedules.index')"
+                    :current="request()->routeIs('admin.schedules.*')" wire:navigate>{{ __('Horarios') }}
+                </flux:navlist.item>
+                <flux:navlist.item icon="clock" :href="route('admin.reservations.index')"
+                    :current="request()->routeIs('admin.reservations.*')" wire:navigate>{{ __('Reservaciones') }}
                 </flux:navlist.item>
 
             </flux:navlist>            
@@ -25,9 +37,9 @@
             <flux:spacer />
 
             <flux:navlist variant="outline">
-                <flux:navlist.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
+                {{-- <flux:navlist.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
                 {{ __('Repository') }}
-                </flux:navlist.item>
+                </flux:navlist.item> --}}
 
                 <flux:navlist.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire" target="_blank">
                 {{ __('Documentation') }}

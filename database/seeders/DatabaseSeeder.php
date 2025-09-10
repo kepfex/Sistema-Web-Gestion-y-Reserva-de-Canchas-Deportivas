@@ -19,5 +19,14 @@ class DatabaseSeeder extends Seeder
             'name' => 'Super Usuario',
             'email' => 'admin@correo.com',
         ]);
+
+        $this->call([
+            CourtTypeSeeder::class,
+            CourtSeeder::class,
+            UserSeeder::class,
+            PricingSeeder::class,
+            ScheduleSeeder::class,
+            ReservationSeeder::class,
+        ]);
     }
 }

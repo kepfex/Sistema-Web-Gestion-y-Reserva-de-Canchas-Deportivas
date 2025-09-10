@@ -4,8 +4,10 @@ namespace App\Livewire\Admin\CourtType;
 
 use App\Livewire\Forms\Admin\CourtTypeForm;
 use App\Models\CourtType;
+use Livewire\Attributes\Layout;
 use Livewire\Component;
 
+#[Layout('components.layouts.app', ['title' => 'Editar - Tipo de Cancha'])]
 class Edit extends Component
 {
     public CourtTypeForm $form;

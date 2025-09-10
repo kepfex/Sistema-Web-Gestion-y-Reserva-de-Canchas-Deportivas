@@ -14,7 +14,7 @@
             @csrf
             <div class="mt-5 w-full max-w-lg flex flex-col gap-4 mb-4">
                 <flux:input wire:model.defer="form.nombre" :label="__('Nombre')" type="text"
-                    :placeholder="__('Categoría')" />
+                    :placeholder="__('Nombre del tipo de cancha deportiva')" />
                 <flux:textarea wire:model.defer="form.descripcion" label="Descripción" rows="2"
                     placeholder="Escribe una breve descripción...">
                     {{ old('description') }}

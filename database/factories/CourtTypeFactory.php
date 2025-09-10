@@ -17,7 +17,8 @@ class CourtTypeFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nombre' => $this->faker->unique()->randomElement(['Fútbol 7', 'Vóley Playa', 'Básquetbol', 'Tenis', 'Fútbol Sala']),
+            'descripcion' => $this->faker->sentence(),
         ];
     }
 }
