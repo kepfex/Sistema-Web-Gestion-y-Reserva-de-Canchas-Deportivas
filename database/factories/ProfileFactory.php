@@ -18,7 +18,7 @@ class ProfileFactory extends Factory
     public function definition(): array
     {
         return [
-            'nombre' => $this->faker->firstName(),
+            'nombres' => $this->faker->firstName(),
             'apellido_paterno' => $this->faker->lastName(),
             'apellido_materno' => $this->faker->lastName(),
             'dni' => $this->faker->unique()->numerify('########'),
