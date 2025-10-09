@@ -18,11 +18,11 @@ class Index extends Component
 
     public function updatingPaginarX()
     {
-        $this->resetPage('schedulePage');
+        $this->resetPage('schedulesPage');
     }
     public function updatingSearch()
     {
-        $this->resetPage('schedulePage');
+        $this->resetPage('schedulesPage');
     }
 
     // Metodo para eliminar
