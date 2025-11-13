@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
         // ])->profile()->save(Profile::factory()->make());
 
         // Crea 10 usuarios y perfiles de prueba.
-        User::factory(10)->create()->each(function ($user) {
+        User::factory(9)->create()->each(function ($user) {
             $user->profile()->save(Profile::factory()->make());
         });
     }
