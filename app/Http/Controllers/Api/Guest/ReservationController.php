@@ -17,8 +17,8 @@ class ReservationController extends Controller
             return [
                 'id' => $reservation->id,
                 'title' => $reservation->court->nombre . ' (' . $reservation->user->name . ')',
-                'start' => $reservation->fecha_hora_inicio,
-                'end' => $reservation->fecha_hora_fin,
+                'start' => $reservation->fecha_hora_inicio->format('Y-m-d\TH:i:s'),
+                'end' => $reservation->fecha_hora_fin->format('Y-m-d\TH:i:s'),
                 'color' => $this->getColorByState($reservation->estado),
                 'estado' => $reservation->estado,
             ];
