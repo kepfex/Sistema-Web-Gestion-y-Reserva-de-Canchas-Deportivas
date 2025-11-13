@@ -60,9 +60,84 @@
         @endif
     </header>
     <main class="mt-10">
-        <h1></h1>
-        <div id='calendar'></div>
+        <!-- INICIO: TÍTULO Y LEYENDA -->
+        <div class="flex flex-col sm:flex-row justify-between items-center mb-4">
+            {{-- CAMBIO: H1 rellenado --}}
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-0">
+                Calendario de Reservas
+            </h1>
+            
+            {{-- CAMBIO: Leyenda añadida --}}
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center">
+                    {{-- Usamos bg-amber-500 que equivale a #f59e0b --}}
+                    <span class="w-4 h-4 rounded-full bg-amber-500 block"></span>
+                    <span class="ml-2 text-sm text-gray-700 dark:text-gray-300">Pendiente</span>
+                </div>
+                <div class="flex items-center">
+                    {{-- Usamos bg-emerald-500 que equivale a #10b981 --}}
+                    <span class="w-4 h-4 rounded-full bg-emerald-500 block"></span>
+                    <span class="ml-2 text-sm text-gray-700 dark:text-gray-300">Confirmada</span>
+                </div>
+                <div class="flex items-center">
+                    {{-- Usamos bg-blue-500 que equivale a #3b82f6 --}}
+                    <span class="w-4 h-4 rounded-full bg-blue-500 block"></span>
+                    <span class="ml-2 text-sm text-gray-700 dark:text-gray-300">Completada</span>
+                </div>
+            </div>
+        </div>
+        <!-- FIN: TÍTULO Y LEYENDA -->
+        <div id='calendar' class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md"></div>
     </main>
+
+    <!-- INICIO: FOOTER CON DETALLE DE ESTADOS -->
+    <footer class="mt-12 mb-6 p-8 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+            Entendiendo los Estados de Reserva
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Estado Pendiente -->
+            <div class="flex items-start">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-amber-500 block mt-1"></span>
+                <div class="ml-4">
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Pendiente</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                        Reserva temporal a la espera de confirmación o pago. Si no se confirma en 10 minutos, se cancelará automáticamente para liberar el horario.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Estado Confirmada -->
+            <div class="flex items-start">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500 block mt-1"></span>
+                <div class="ml-4">
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Confirmada</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                        ¡Reserva exitosa! El pago ha sido recibido y tu horario está 100% asegurado. Esta es tu reserva activa.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Estado Completada -->
+            <div class="flex items-start">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 block mt-1"></span>
+                <div class="ml-4">
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Completada</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                        Esta reserva ya ha finalizado. Aparece en el calendario como parte de tu historial de juegos.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="border-t border-gray-200 dark:border-gray-700 mt-8 pt-6 text-center">
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+                &copy; {{ date('Y') }} Reserva de Canchas Deportivas.
+            </p>
+        </div>
+    </footer>
+    <!-- FIN: FOOTER -->
 
     @if (Route::has('login'))
         <div class="h-14.5 hidden lg:block"></div>
