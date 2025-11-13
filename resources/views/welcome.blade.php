@@ -69,28 +69,13 @@
     @endif
 
     <script type="module">
-        // document.addEventListener('DOMContentLoaded', function() {
-        //     var calendarEl = document.getElementById('calendar');
-        //     var calendar = new FullCalendar.Calendar(calendarEl, {
-        //         locale: 'es',
-        //         timeZone: 'America/Lima',
-        //         initialView: 'timeGridWeek',
-
-        //         editable: true,
-        //         selectable: true,
-        //         select: function(info) {
-        //             console.log(info);
-
-        //         },
-        //     });
-        //     calendar.render();
-        // });
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 locale: 'es',
                 timeZone: 'America/Lima',
                 initialView: 'timeGridWeek',
+                events: '/api/reservations',
 
                 editable: true,
                 selectable: true,
