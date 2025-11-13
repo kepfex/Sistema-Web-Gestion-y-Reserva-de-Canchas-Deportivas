@@ -9,8 +9,12 @@ use Illuminate\Http\Request;
 class ReservationController extends Controller
 {
     public function index() {
+        $statesToDisplay = ['pendiente', 'confirmada', 'completada'];
+
         // Obtenemos todas las reservaciones con sus relaciones
-        $reservations = Reservation::with(['user', 'court'])->get();
+        $reservations = Reservation::with(['user', 'court'])
+            ->whereIn('estado', $statesToDisplay)
+            ->get();
 
         // Mapeamos los datos al formato que espea Fullcalendar
         $events = $reservations->map(function ($reservation) {
