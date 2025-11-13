@@ -15,8 +15,12 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 
+    {{-- <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.19/index.global.min.js'></script> --}}
+    <script src="{{ asset('js/fullcalendar/index.global.min.js') }}"></script>
+
     <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- 'resources/js/pages/calendar.js' --}}
 </head>
 
 <body class="bg-gray-50 container mx-auto">
@@ -57,11 +61,47 @@
     </header>
     <main class="mt-10">
         <h1></h1>
+        <div id='calendar'></div>
     </main>
 
     @if (Route::has('login'))
         <div class="h-14.5 hidden lg:block"></div>
     @endif
+
+    <script type="module">
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     var calendarEl = document.getElementById('calendar');
+        //     var calendar = new FullCalendar.Calendar(calendarEl, {
+        //         locale: 'es',
+        //         timeZone: 'America/Lima',
+        //         initialView: 'timeGridWeek',
+
+        //         editable: true,
+        //         selectable: true,
+        //         select: function(info) {
+        //             console.log(info);
+
+        //         },
+        //     });
+        //     calendar.render();
+        // });
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                locale: 'es',
+                timeZone: 'America/Lima',
+                initialView: 'timeGridWeek',
+
+                editable: true,
+                selectable: true,
+                select: function(info) {
+                    console.log(info);
+
+                },
+            });
+            calendar.render();
+        });
+    </script>
 </body>
 
 </html>
