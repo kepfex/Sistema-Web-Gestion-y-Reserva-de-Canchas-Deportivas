@@ -13,7 +13,7 @@ class PricingForm extends Form
     public ?Pricing $pricing = null;
 
     // Validación para el ID del tipo de cancha.
-    #[Rule('required|exists:court_types,id')]
+    #[Rule('required|exists:court_types,id', as: 'tipo de cancha')]
     public $court_type_id = '';
     
     // Validación para la hora de inicio (formato H:i).
@@ -26,10 +26,10 @@ class PricingForm extends Form
 
     // Validación para el precio.
     #[Rule('required|numeric|min:0')]
-    public $precio_por_hora = 0;
+    public $precio_por_hora = "";
 
     // Validación para el estado booleano.
-    #[Rule('required|boolean')]
+    #[Rule('required|boolean', as: 'precio nocturno')]
     public $es_precio_nocturno = false;
 
     // Llena el formulario con los datos de un modelo de Pricing.

@@ -40,16 +40,42 @@
 
             <div class="mt-5 w-full max-w-lg flex flex-col md:flex-row gap-4 mb-6">
                 <div class="max-w-1/2">
-                    <flux:input wire:model.defer="form.precio_por_hora" :label="__('Precio por Hora S/.')" type="number"
-                        step="0.01" min="0" :placeholder="__('ej. 15.50')" badge=" * " />
+                    <flux:input wire:model.defer="form.precio_por_hora" :label="__('Precio por Hora S/.')"
+                        type="number" step="0.01" min="0" :placeholder="__('ej. 15.50')" badge=" * " />
                 </div>
                 {{-- Campo para el Switch de Precio Nocturno --}}
                 <div class="flex items-center">
-                    <flux:field variant="inline" class="pt-6">
-                        <flux:label>Precio Nocturno</flux:label>
-                        <flux:switch wire:model.defer="form.es_precio_nocturno" />
-                        <flux:error name="form.es_precio_nocturno" />
-                    </flux:field>
+                    <div class="flex flex-col gap-3.5">
+                        <label class="inline-flex items-center cursor-pointer pt-6">
+                            <span class="select-none mr-3 text-sm font-medium text-heading">Precio Nocturno</span>
+                            <input type="checkbox" wire:model.defer="form.es_precio_nocturno" class="sr-only peer">
+                            <div
+                                class="relative w-9 h-5 
+                                bg-gray-300                
+                                peer-focus:outline-none 
+                                rounded-full transition-all duration-300
+                                peer-checked:bg-gray-800
+                                after:content-[''] after:absolute after:top-[2px] after:start-[2px]
+                                after:w-4 after:h-4 after:bg-white after:rounded-full after:transition-all
+                                peer-checked:after:translate-x-full">
+                            </div>
+                        </label>
+                        @error('form.es_precio_nocturno')
+                            <div class="flex items-start gap-2 mt-2 text-red-500 text-sm font-medium">
+                                <!-- Icono -->
+                                <svg class="shrink-0 [:where(&)]:size-5 inline" data-flux-icon
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                    aria-hidden="true" data-slot="icon">
+                                    <path fill-rule="evenodd"
+                                        d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495ZM10 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 10 5Zm0 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"
+                                        clip-rule="evenodd">
+                                    </path>
+                                </svg>
+                                <!-- Mensaje de error -->
+                                <span>{{ $message }}</span>
+                            </div>
+                        @enderror
+                    </div>
                 </div>
             </div>
 
