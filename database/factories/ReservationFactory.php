@@ -19,8 +19,8 @@ class ReservationFactory extends Factory
     public function definition(): array
     {
         return [
-            // 'user_id' => User::factory(),
-            // 'court_id' => Court::factory(),
+            'user_id' => User::factory(),
+            'court_id' => Court::factory(),
             'fecha_hora_inicio' => $this->faker->dateTimeBetween('now', '+1 month'),
             'fecha_hora_fin' => $this->faker->dateTimeBetween('now', '+1 month'),
             'estado' => $this->faker->randomElement(['pendiente', 'confirmada', 'cancelada', 'completada']),

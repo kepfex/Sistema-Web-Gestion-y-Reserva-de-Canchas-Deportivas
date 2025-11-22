@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Console\Commands\GenerateComponentTests;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -11,7 +12,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // Register custom Artisan commands
+        if (class_exists(GenerateComponentTests::class)) {
+            $this->commands([
+                GenerateComponentTests::class,
+            ]);
+        }
     }
 
     /**
