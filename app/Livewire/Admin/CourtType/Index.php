@@ -53,7 +53,7 @@ class Index extends Component
 
         return view('livewire.admin.court-type.index', [
             'courtTypes' => $courtTypes,
-            'titulo' => 'Tipos de Canchas',
+            'titulo' => 'Tipos de Canchas Deportivas',
         ]);
     }
 }
