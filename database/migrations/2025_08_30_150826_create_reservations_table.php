@@ -18,6 +18,8 @@ return new class extends Migration
             $table->enum('estado', ['pendiente', 'confirmada', 'cancelada', 'completada'])
                   ->default('pendiente')
                   ->comment('Estado actual de la reserva');
+            $table->decimal('total', 10, 2)->default(0); // Almacena el monto final
+            $table->decimal('precio_snapshot', 10, 2)->nullable(); // Almacena a cuánto estaba la hora cuando reservó
 
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('court_id')->constrained('courts')->onDelete('cascade');
