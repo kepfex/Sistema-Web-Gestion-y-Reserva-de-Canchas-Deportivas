@@ -15,15 +15,16 @@ class PricingSeeder extends Seeder
      */
     public function run(): void
     {
-        // Obtiene todos los IDs de los tipos de canchas creados por el CourtTypeSeeder
-        $courtTypeIds = CourtType::pluck('id')->all();
+        $precios = [
+            ['hora_inicio' => '07:00:00', 'hora_fin' => '18:29:00', 'precio_por_hora' => '30.00', 'es_precio_nocturno' => 0],
+            ['hora_inicio' => '18:30:00', 'hora_fin' => '23:59:00', 'precio_por_hora' => '35.00', 'es_precio_nocturno' => 1],
+        ];
 
-        // Inicializa la instancia de Faker
-        $faker = Faker::create();
-
-        // Crea 6 franjas de precios, asociándolas aleatoriamente a los tipos de cancha
-        Pricing::factory(6)->create([
-            'court_type_id' => $faker->randomElement($courtTypeIds),
-        ]);
+        foreach ($precios as $item) {
+            Pricing::create([
+                ...$item,
+                'court_type_id' => 3
+            ]);
+        }
     }
 }

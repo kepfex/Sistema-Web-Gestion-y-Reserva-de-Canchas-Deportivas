@@ -14,8 +14,9 @@ class CourtTypeSeeder extends Seeder
     public function run(): void
     {
         // Crea tipos de canchas con sus respectivos nombres y descripciones.
-        CourtType::factory()->create(['nombre' => 'Fútbol 7', 'descripcion' => 'Cancha de césped sintético para partidos de fútbol 7.']);
-        CourtType::factory()->create(['nombre' => 'Vóley Playa', 'descripcion' => 'Cancha de arena para partidos de vóley playa.']);
-        CourtType::factory()->create(['nombre' => 'Básquetbol', 'descripcion' => 'Cancha de asfalto para partidos de básquetbol.']);
+        CourtType::create(['nombre' => 'Fulbito', 'descripcion' => 'Cancha de césped sintético para partidos con cantidad reducida de jugadores']); // id 1
+        CourtType::create(['nombre' => 'Vóley', 'descripcion' => 'Cancha de césped sintético para partidos de vóley playa.']); // id 2
+        CourtType::create(['nombre' => 'Multiuso (Fulbito - Vóley)', 'descripcion' => 'Cancha de césped sintético para partidos de fulbito o vóley.']); // id 3
+        CourtType::create(['nombre' => 'Básquetbol', 'descripcion' => 'Cancha de asfalto para partidos de básquetbol.']); // id 3
     }
 }

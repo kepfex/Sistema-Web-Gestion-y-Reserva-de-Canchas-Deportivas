@@ -14,6 +14,8 @@ class Reservation extends Model
         'fecha_hora_inicio',
         'fecha_hora_fin',
         'estado',
+        'total',
+        'precio_snapshot',
         'user_id',
         'court_id',
     ];

@@ -77,6 +77,12 @@
                     <th scope="col" class="px-6 py-3">
                         Estado
                     </th>
+                    <th scope="col" class="px-6 py-3">
+                        P. por H. S/.
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Total
+                    </th>
                     <th scope="col" class="px-6 py-3 w-40 text-center">
                         <span class="sr-only">Acciones</span>
                     </th>
@@ -116,6 +122,12 @@
                                 <span
                                     class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Completada</span>
                             @endif
+                        </td>
+                        <td class="px-6 py-3">
+                            {{ $reservation->precio_snapshot }}
+                        </td>
+                        <td class="px-6 py-3">
+                            {{ $reservation->total }}
                         </td>
                         <td class="px-6 py-3 text-right flex space-x-2">
                             <a wire:navigate href="{{ route('admin.reservations.edit', $reservation) }}"

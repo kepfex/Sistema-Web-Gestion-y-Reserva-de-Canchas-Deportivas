@@ -15,15 +15,20 @@ class ScheduleSeeder extends Seeder
      */
     public function run(): void
     {
-        // Obtiene todos los IDs de las canchas creadas previamente
-        $courtIds = Court::pluck('id')->all();
+        $horarios = [
+            ['dia_de_la_semana' => 'Lunes', 'hora_apertura' => '08:00:00', 'hora_cierre' => '10:00'],
+            ['dia_de_la_semana' => 'Martes', 'hora_apertura' => '08:00:00', 'hora_cierre' => '10:00'],
+            ['dia_de_la_semana' => 'Miércoles', 'hora_apertura' => '08:00:00', 'hora_cierre' => '10:00'],
+            ['dia_de_la_semana' => 'Jueves', 'hora_apertura' => '08:00:00', 'hora_cierre' => '10:00'],
+            ['dia_de_la_semana' => 'Viernes', 'hora_apertura' => '08:00:00', 'hora_cierre' => '10:00'],
+            ['dia_de_la_semana' => 'Sábado', 'hora_apertura' => '08:00:00', 'hora_cierre' => '10:00'],
+        ];
 
-        // Inicializa la instancia de Faker
-        $faker = Faker::create();
-
-        // Crea 10 horarios, asociándolos aleatoriamente a una de las canchas
-        Schedule::factory(10)->create([
-            'court_id' => $faker->randomElement($courtIds),
-        ]);
+        foreach($horarios as $item) {
+            Schedule::create([
+                ...$item,
+                'court_id' => 1
+            ]);
+        }
     }
 }

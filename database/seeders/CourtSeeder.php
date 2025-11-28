@@ -14,13 +14,16 @@ class CourtSeeder extends Seeder
      */
     public function run(): void
     {
-        // Obtiene los tipos de canchas existentes para usarlos en la creación de canchas.
-        $courtTypes = CourtType::all();
-
-        // Crea 10 canchas en total.
-        for ($i = 0; $i < 10; $i++) {
-            Court::factory()->create([
-                'court_type_id' => $courtTypes->random()->id,
+        $canchas = [
+            ['nombre' => 'Cancha 1', 'medidas' => '20m x 30m', 'ubicacion' => 'Local 1 - cancha principal'],
+            ['nombre' => 'Cancha 2', 'medidas' => '15m x 20m', 'ubicacion' => 'Local 1 - cancha secundaria'],
+        ];
+        
+        foreach($canchas as $cancha) {
+            Court::create([
+                ...$cancha,
+                'disponible' => 1,
+                'court_type_id' => 3
             ]);
         }
     }
