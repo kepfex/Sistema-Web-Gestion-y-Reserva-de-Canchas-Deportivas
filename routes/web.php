@@ -6,6 +6,7 @@ use App\Livewire\Admin\CourtType\Edit as CourtTypeEdit;
 use App\Livewire\Admin\Court\Index as CourtIndex;
 use App\Livewire\Admin\Court\Create as CourtCreate;
 use App\Livewire\Admin\Court\Edit as CourtEdit;
+use App\Livewire\Admin\Dashboard\Index as DashboardIndex;
 use App\Livewire\Admin\Pricing\Index as PricingIndex;
 use App\Livewire\Admin\Pricing\Create as PricingCreate;
 use App\Livewire\Admin\Pricing\Edit as PricingEdit;
@@ -24,7 +25,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::view('dashboard', 'dashboard')
+Route::get('dashboard', DashboardIndex::class)
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
@@ -40,6 +41,9 @@ Route::middleware(['auth'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
+        // Dashboard
+        // Route::get('dashboard', DashboardIndex::class)->name('dashboard.index');
+
         // Rutas para Tipo de Canchas
         Route::get('court-types', CourtTypeIndex::class)->name('court-types.index');
         Route::get('court-types/create', CourtTypeCreate::class)->name('court-types.create');
